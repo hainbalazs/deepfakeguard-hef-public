@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results Table</title>
+	<style>p{margin: 0.2em 0 0 0.5em; padding: 0;}</style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Accuracy</th>
+                <th>Time taken</th>
+				<th>Sample size</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.name }}</td>
+                <td>{{ result.accuracy }}</td>
+                <td>{{ result.time }}</td>
+				<td>{{ result.size }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+	
+	<h3>Accumulated statistics</h3>
+	<p>Minimum: &#9; {{ stats.min_accuracy }}</p>
+    <p>Maximum: &#9; {{ stats.max_accuracy }}</p>
+    <p>Average: &#9; {{ stats.avg_accuracy }}</p>
+    <p>Median:  &#9; {{ stats.median_accuracy }}</p>
+</body>
+</html>
